@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      = render "devise/shared/error_messages", resource: resource
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      .card.card-signin.my-5
+        .card-body
+          = render 'devise/partials/signup'

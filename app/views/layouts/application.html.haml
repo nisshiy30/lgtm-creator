@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title LGTMCreator
+    = csrf_meta_tags
+    = csp_meta_tag
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = analytics_init if Rails.env.production?
+  %body
+    .navbar.navbar-dark.bg-dark.box-shadow
+      .container.d-flex.justify-content-between
+        %a.navbar-brand.d-flex.align-items-center{href: root_path}
+          %strong LGTMCreator
+        - if user_signed_in?
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'text-white'
+    = yield
+
+  %footer.footer-copyright.text-center.py-3
+    © 2019 Copyright NISHIO-K

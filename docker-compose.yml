@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:10.1
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  web:
+    tty: true
+    stdin_open: true
+    build: .
+    environment:
+      RAILS_ENV: development
+    ports:
+      - '3000:3000'
+    links:
+      - "postgres"
+    volumes:
+      - ".:/lgtm-creator"

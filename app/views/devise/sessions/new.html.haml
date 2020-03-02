@@ -1,0 +1,20 @@
+.container.py-5
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      = render 'devise/shared/error_messages', resource: resource
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      .card
+        %nav
+          #nav-tab.nav.nav-tabs.nav-fill{:role => 'tablist'}
+            %a#nav-about-tab.nav-item.nav-link.active.text-black{'aria-controls' => 'nav-about', 'aria-selected' => 'false', 'data-toggle' => 'tab', :href => '#signin', :role => 'tab'}
+              Sign In
+            %a#nav-home-tab.nav-item.nav-link.text-black{'aria-controls' => 'nav-home', 'aria-selected' => 'true', 'data-toggle' => 'tab', :href => '#signup', :role => 'tab'}
+              Sign Up
+        .card-body
+          .tab-content.mt-3
+            #signin.tab-pane.active{'aria-labelledby' => 'signin-tab', :role => 'tabpanel'}
+              = render 'devise/partials/signin'
+            #signup.tab-pane{'aria-labelledby' => 'signup-tab', :role => 'tabpanel'}
+              = render 'devise/partials/signup'
+
